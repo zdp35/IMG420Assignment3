@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfmh3fm2de78o"]
+
+[ext_resource type="Script" uid="uid://dxrwyevoan2dl" path="res://Scripts/Coin.gd" id="1_hh4vd"]
+[ext_resource type="Texture2D" uid="uid://jaegp53ccc7w" path="res://Assets/Spritesheet/platformPack_tilesheet.png" id="2_cukgg"]
+
+[node name="Coin" type="Area2D"]
+script = ExtResource("1_hh4vd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_cukgg")
+region_enabled = true
+region_rect = Rect2(520, 208, 48, 32)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-8, -14, 8, -14, 18, -5, 18, -2, 2, 14, -1, 14, -17, -2, -17, -5)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
